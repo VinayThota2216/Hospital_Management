@@ -1,5 +1,8 @@
 package com.vinay.hospitalmanagement.dto;
 
+import lombok.Data;
+
+@Data
 public class PatientResponse {
     private Long patientId;
 

@@ -1,7 +1,10 @@
 package com.vinay.hospitalmanagement.dto;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class MedicalRecordResponse {
     private Long recordId;
     private Long patientId;
