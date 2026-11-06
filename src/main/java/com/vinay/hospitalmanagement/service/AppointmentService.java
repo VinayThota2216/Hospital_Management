@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface AppointmentService {
     AppointmentResponse create(AppointmentRequest appointmentRequest);
-    AppointmentResponse update(AppointmentRequest appointmentRequest,Long appointmentId);
+    AppointmentResponse update(Long appointmentId,AppointmentRequest appointmentRequest);
     AppointmentResponse delete(Long appointmentId);
     AppointmentResponse getById(Long appointmentId);
 

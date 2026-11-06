@@ -9,7 +9,7 @@ import com.vinay.hospitalmanagement.entity.MedicalRecord;
 public interface MedicalRecordService {
 
     MedicalRecordResponse create(MedicalRecordRequest medicalRecordRequest);
-    MedicalRecordResponse update(MedicalRecordRequest medicalRecordRequest,Long recordId);
+    MedicalRecordResponse update(Long recordId,MedicalRecordRequest medicalRecordRequest);
     MedicalRecordResponse getById(Long recordId);
     MedicalRecordResponse delete(Long recordId);
 

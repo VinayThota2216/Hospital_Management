@@ -10,7 +10,7 @@ public class DoctorServiceImpl implements DoctorService {
     public DoctorResponse create(DoctorRequest doctorRequest){
         return null;
     }
-    public DoctorResponse update(DoctorRequest doctorRequest,Long doctorId){
+    public DoctorResponse update(Long doctorId,DoctorRequest doctorRequest){
         return null;
     }
     public DoctorResponse delete(Long doctorId){

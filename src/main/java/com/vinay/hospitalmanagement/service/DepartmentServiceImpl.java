@@ -10,7 +10,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public DepartmentResponse create(DepartmentRequest departmentRequest){
         return null;
     }
-    public DepartmentResponse update(DepartmentRequest departmentRequest, Long departmentId){
+    public DepartmentResponse update(Long departmentId,DepartmentRequest departmentRequest){
         return null;
     }
     public DepartmentResponse delete(Long departmentId){

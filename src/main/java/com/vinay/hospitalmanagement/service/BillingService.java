@@ -7,7 +7,7 @@ import com.vinay.hospitalmanagement.entity.Billing;
 public interface BillingService {
 
     BillingResponse create(BillingRequest billingRequest);
-    BillingResponse update(BillingRequest billingRequest, Long billingId);
+    BillingResponse update(Long billingId,BillingRequest billingRequest);
     BillingResponse delete(Long billingId);
     BillingResponse getById(Long billingId);
 }

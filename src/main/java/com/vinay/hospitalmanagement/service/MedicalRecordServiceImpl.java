@@ -10,7 +10,7 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
     public MedicalRecordResponse create(MedicalRecordRequest medicalRecordRequest){
         return null;
     }
-    public MedicalRecordResponse update(MedicalRecordRequest medicalRecordRequest,Long recordId){
+    public MedicalRecordResponse update(Long recordId,MedicalRecordRequest medicalRecordRequest){
         return null;
     }
     public MedicalRecordResponse getById(Long recordId){

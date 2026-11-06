@@ -10,5 +10,5 @@ public interface PrescriptionService {
     PrescriptionResponse create(PrescriptionRequest prescriptionRequest);
     PrescriptionResponse getById(Long prescriptionId);
     PrescriptionResponse delete(Long prescriptionId);
-    PrescriptionResponse update(PrescriptionRequest prescriptionRequest, Long prescriptionId);
+    PrescriptionResponse update(Long prescriptionId,PrescriptionRequest prescriptionRequest);
 }

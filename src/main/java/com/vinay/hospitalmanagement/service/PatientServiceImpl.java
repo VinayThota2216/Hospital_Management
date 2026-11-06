@@ -10,7 +10,7 @@ public class PatientServiceImpl implements PatientService {
     public PatientResponse create(PatientRequest patientRequest){
         return null;
     }
-    public PatientResponse update(PatientRequest patientRequest, Long patientId){
+    public PatientResponse update(Long patientId,PatientRequest patientRequest){
         return null;
     }
     public PatientResponse delete(Long patientId){

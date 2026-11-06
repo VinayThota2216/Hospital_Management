@@ -10,7 +10,7 @@ public class BillingServiceImpl implements BillingService {
     public BillingResponse create(BillingRequest billingRequest){
         return null;
     }
-    public BillingResponse update(BillingRequest billingRequest, Long billingId){
+    public BillingResponse update(Long billingId,BillingRequest billingRequest){
         return null;
     }
     public BillingResponse delete(Long billingId){

@@ -16,7 +16,7 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     public PrescriptionResponse delete(Long prescriptionId){
         return null;
     }
-    public PrescriptionResponse update(PrescriptionRequest prescriptionRequest, Long prescriptionId){
+    public PrescriptionResponse update(Long prescriptionId,PrescriptionRequest prescriptionRequest){
         return null;
     }
 }

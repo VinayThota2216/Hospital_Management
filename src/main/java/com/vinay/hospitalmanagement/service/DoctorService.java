@@ -6,7 +6,7 @@ import com.vinay.hospitalmanagement.dto.DoctorResponse;
 public interface DoctorService {
 
     DoctorResponse create(DoctorRequest doctorRequest);
-    DoctorResponse update(DoctorRequest doctorRequest,Long doctorId);
+    DoctorResponse update(Long doctorId,DoctorRequest doctorRequest);
     DoctorResponse delete(Long doctorId);
     DoctorResponse getById(Long doctorId);
 }

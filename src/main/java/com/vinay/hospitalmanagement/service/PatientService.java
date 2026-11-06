@@ -6,7 +6,7 @@ import com.vinay.hospitalmanagement.dto.PatientResponse;
 public interface PatientService {
 
     PatientResponse create(PatientRequest patientRequest);
-    PatientResponse update(PatientRequest patientRequest, Long patientId);
+    PatientResponse update(Long patientId,PatientRequest patientRequest);
     PatientResponse delete(Long patientId);
     PatientResponse getById(Long patientId);
 }

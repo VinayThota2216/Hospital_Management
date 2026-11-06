@@ -6,7 +6,7 @@ import com.vinay.hospitalmanagement.dto.DepartmentResponse;
 public interface DepartmentService {
 
     DepartmentResponse create(DepartmentRequest departmentRequest);
-    DepartmentResponse update(DepartmentRequest departmentRequest, Long departmentId);
+    DepartmentResponse update(Long departmentId,DepartmentRequest departmentRequest);
     DepartmentResponse delete(Long departmentId);
     DepartmentResponse getById(Long departmentId);
 }

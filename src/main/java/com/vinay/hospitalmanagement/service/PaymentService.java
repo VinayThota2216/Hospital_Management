@@ -7,6 +7,6 @@ public interface PaymentService {
 
     PaymentResponse create(PaymentRequest paymentRequest);
     PaymentResponse getById(Long paymentId);
-    PaymentResponse update(PaymentRequest paymentRequest, Long paymentId);
+    PaymentResponse update(Long paymentId,PaymentRequest paymentRequest);
     PaymentResponse delete(Long paymentId);
 }

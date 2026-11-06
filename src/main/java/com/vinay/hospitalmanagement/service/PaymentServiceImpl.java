@@ -13,7 +13,7 @@ public class PaymentServiceImpl implements PaymentService{
     public PaymentResponse getById(Long paymentId){
         return null;
     }
-    public PaymentResponse update(PaymentRequest paymentRequest, Long paymentId){
+    public PaymentResponse update(Long paymentId,PaymentRequest paymentRequest){
         return null;
     }
     public PaymentResponse delete(Long paymentId){
