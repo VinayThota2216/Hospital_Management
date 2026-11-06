@@ -10,10 +10,27 @@ import com.vinay.hospitalmanagement.entity.Doctor;
 public class DoctorMapper {
 
     public Doctor doctorRequestToEntity(DoctorRequest doctorRequest){
-        return null;
+
+        Doctor doctor = new Doctor();
+
+        doctor.setDoctorName(doctorRequest.getDoctorName());
+        doctor.setEmail(doctorRequest.getEmail());
+        doctor.setMobileNumber(String.valueOf(doctorRequest.getMobileNumber()));
+        doctor.setSpecialization(String.valueOf(doctorRequest.getSpecialization()));
+
+        return doctor;
     }
 
     public DoctorResponse doctorEntityToResponse(Doctor doctor){
-        return null;
+
+        DoctorResponse doctorResponse = new DoctorResponse();
+
+        doctorResponse.setDoctorId(doctor.getDoctorId());
+        doctorResponse.setDoctorName(doctor.getDoctorName());
+        doctorResponse.setEmail(doctor.getEmail());
+        doctorResponse.setMobileNumber(doctor.getMobileNumber());
+        doctorResponse.setSpecialization(doctor.getSpecialization());
+
+        return doctorResponse;
     }
 }

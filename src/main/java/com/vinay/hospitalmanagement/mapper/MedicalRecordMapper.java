@@ -10,10 +10,30 @@ import com.vinay.hospitalmanagement.entity.MedicalRecord;
 public class MedicalRecordMapper {
 
     public MedicalRecord medicalRecordRequestToEntity(MedicalRecordRequest medicalRecordRequest){
-        return null;
+
+        MedicalRecord medicalRecord = new MedicalRecord();
+
+        medicalRecord.setDoctorId(medicalRecordRequest.getDoctorId());
+        medicalRecord.setPatientId(medicalRecordRequest.getPatientId());
+        medicalRecord.setDiagnosis( medicalRecordRequest.getDiagnosis());
+        medicalRecord.setRecordDate(medicalRecordRequest.getRecordDate());
+        medicalRecord.setTreatment(medicalRecordRequest.getTreatment());
+
+        return medicalRecord;
+
     }
 
     public MedicalRecordResponse medicalRecordEntityToResponse(MedicalRecord medicalRecord){
-        return null;
+
+        MedicalRecordResponse medicalRecordResponse = new MedicalRecordResponse();
+
+        medicalRecord.setRecordId(medicalRecord.getRecordId());
+        medicalRecordResponse.setDoctorId(medicalRecord.getDoctorId());
+        medicalRecordResponse.setPatientId(medicalRecord.getPatientId());
+        medicalRecordResponse.setDiagnosis(medicalRecord.getDiagnosis());
+        medicalRecordResponse.setRecordDate(medicalRecord.getRecordDate());
+        medicalRecordResponse.setTreatment(medicalRecord.getTreatment());
+
+        return medicalRecordResponse;
     }
 }

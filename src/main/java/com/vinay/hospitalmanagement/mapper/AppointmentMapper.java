@@ -7,10 +7,28 @@ import com.vinay.hospitalmanagement.entity.Appointment;
 public class AppointmentMapper {
 
     public Appointment appointmentRequestToEntity(AppointmentRequest appointmentRequest){
-        return null;
+        Appointment appointment = new Appointment();
+
+        appointment.setAppointmentDate(appointmentRequest.getAppointmentDate());
+        appointment.setDoctorId(appointmentRequest.getDoctorId());
+        appointment.setPatientId(appointmentRequest.getPatientId());
+        appointment.setReason(appointmentRequest.getReason());
+        appointment.setStatus(appointmentRequest.getStatus());
+
+        return appointment;
     }
 
     public AppointmentResponse appointmentEntityToResponse(Appointment appointment){
-        return null;
+
+        AppointmentResponse appointmentResponse = new AppointmentResponse();
+
+        appointmentResponse.setAppointmentId(appointment.getAppointmentId());
+        appointmentResponse.setAppointmentDate(appointment.getAppointmentDate());
+        appointmentResponse.setDoctorId(appointment.getDoctorId());
+        appointmentResponse.setPatientId(appointment.getPatientId());
+        appointmentResponse.setReason(appointment.getReason());
+        appointmentResponse.setStatus(appointment.getStatus());
+
+        return appointmentResponse;
     }
 }

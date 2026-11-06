@@ -9,10 +9,23 @@ import com.vinay.hospitalmanagement.entity.Department;
 
 public class DepartmentMapper {
     public Department departmentRequestToEntity(DepartmentRequest departmentRequest){
-        return null;
+
+        Department department = new Department();
+
+        department.setDepartmentName(departmentRequest.getDepartmentName());
+        department.setDescription(departmentRequest.getDescription());
+
+        return department;
     }
 
     public DepartmentResponse departmentEntityToResponse(Department department){
-        return null;
+
+        DepartmentResponse departmentResponse = new DepartmentResponse();
+
+        departmentResponse.setDepartmentId(department.getDepartmentId());
+        departmentResponse.setDepartmentName(department.getDepartmentName());
+        departmentResponse.setDescription(department.getDescription());
+
+        return departmentResponse;
     }
 }

@@ -9,10 +9,28 @@ import com.vinay.hospitalmanagement.entity.Billing;
 
 public class BillingMapper {
     public Billing billingRequestToEntity(BillingRequest billingRequest){
-        return null;
+
+        Billing billing = new Billing();
+
+        billing.setBillDate(billingRequest.getBillDate());
+        billing.setBillStatus(billingRequest.getBillStatus());
+        billing.setPatientId(billingRequest.getPatientId());
+        billing.setTotalAmount(billingRequest.getTotalAmount());
+
+        return billing;
+
     }
 
     public BillingResponse billingEntityToResponse(Billing billing){
-        return null;
+        BillingResponse billingResponse = new BillingResponse();
+
+        billingResponse.setBillId(billing.getBillId());
+        billingResponse.setBillDate(billing.getBillDate());
+        billingResponse.setBillStatus(billing.getBillStatus());
+        billingResponse.setPatientId(billing.getPatientId());
+        billingResponse.setTotalAmount(billing.getTotalAmount());
+
+        return billingResponse;
+
     }
 }

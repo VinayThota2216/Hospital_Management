@@ -9,10 +9,27 @@ import com.vinay.hospitalmanagement.entity.Prescription;
 
 public class PrescriptionMapper {
     public Prescription prescriptionRequestToEntity(PrescriptionRequest prescriptionRequest){
-        return null;
+
+        Prescription prescription = new Prescription();
+
+        prescription.setDoctorId(prescriptionRequest.getDoctorId());
+        prescription.setMedicineDetails(prescriptionRequest.getMedicineDetails());
+        prescription.setPatientId(prescriptionRequest.getPatientId());
+        prescription.setPrescriptionDate(prescriptionRequest.getPrescriptionDate());
+
+        return prescription;
     }
 
     public PrescriptionResponse prescriptionEntityToResponse(Prescription prescription){
-        return null;
+
+        PrescriptionResponse prescriptionResponse = new PrescriptionResponse();
+
+        prescriptionResponse.setPrescriptionId(prescription.getPrescriptionId());
+        prescriptionResponse.setDoctorId(prescription.getDoctorId());
+        prescriptionResponse.setPrescriptionDate(prescription.getPrescriptionDate());
+        prescriptionResponse.setPatientId(prescription.getPatientId());
+        prescriptionResponse.setMedicineDetails(prescription.getMedicineDetails());
+
+        return prescriptionResponse;
     }
 }

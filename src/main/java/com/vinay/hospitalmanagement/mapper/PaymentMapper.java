@@ -6,13 +6,31 @@ import com.vinay.hospitalmanagement.dto.PaymentRequest;
 import com.vinay.hospitalmanagement.dto.PaymentResponse;
 import com.vinay.hospitalmanagement.entity.Appointment;
 import com.vinay.hospitalmanagement.entity.Payment;
+import org.springframework.data.util.TypeCollector;
 
 public class PaymentMapper {
     public Payment paymentRequestToEntity(PaymentRequest paymentRequest){
-        return null;
+
+        Payment payment = new Payment();
+
+        payment.setBillId(paymentRequest.getBillId());
+        payment.setAmount(paymentRequest.getAmount());
+        payment.setPaymentMethod(paymentRequest.getPaymentMethod());
+        payment.setPaymentStatus(paymentRequest.getPaymentStatus());
+
+        return payment;
     }
 
     public PaymentResponse paymentEntityToResponse(Payment payment){
-        return null;
+
+        PaymentResponse paymentResponse = new PaymentResponse();
+
+        paymentResponse.setPaymentId(payment.getPaymentId());
+        paymentResponse.setBillId(payment.getBillId());
+        paymentResponse.setAmount(payment.getAmount());
+        paymentResponse.setPaymentMethod(payment.getPaymentMethod());
+        paymentResponse.setPaymentStatus(payment.getPaymentStatus());
+
+        return paymentResponse;
     }
 }
