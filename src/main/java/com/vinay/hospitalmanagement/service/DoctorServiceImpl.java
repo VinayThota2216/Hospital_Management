@@ -3,6 +3,7 @@ package com.vinay.hospitalmanagement.service;
 import com.vinay.hospitalmanagement.dto.DoctorRequest;
 import com.vinay.hospitalmanagement.dto.DoctorResponse;
 import com.vinay.hospitalmanagement.entity.Doctor;
+import com.vinay.hospitalmanagement.exception.DoctorAlreadyExistsException;
 import com.vinay.hospitalmanagement.exception.DoctorNotFoundException;
 import com.vinay.hospitalmanagement.mapper.DoctorMapper;
 import com.vinay.hospitalmanagement.repository.DoctorRepository;
@@ -20,9 +21,22 @@ public class DoctorServiceImpl implements DoctorService {
 
     public DoctorResponse create(DoctorRequest doctorRequest){
 
-        Doctor doctor= DoctorMapper.doctorRequestToEntity(doctorRequest);
+        try {
+            Optional<Doctor> doctor = doctorRepository.findByDoctorName(doctorRequest.getDoctorName());
 
-        return DoctorMapper.doctorEntityToResponse(doctorRepository.save(doctor));
+            if(doctor.isPresent()){
+                throw new DoctorAlreadyExistsException("Doctor already exists with this"+doctorRequest.getDoctorName());
+            }
+
+
+            Doctor doctorEntity = DoctorMapper.doctorRequestToEntity(doctorRequest);
+
+            return DoctorMapper.doctorEntityToResponse(doctorRepository.save(doctorEntity));
+
+        }
+        catch (DoctorAlreadyExistsException e){
+            throw new RuntimeException(e.getMessage(),e);
+        }
 
     }
 

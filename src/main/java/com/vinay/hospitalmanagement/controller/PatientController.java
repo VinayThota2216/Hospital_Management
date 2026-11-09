@@ -3,6 +3,7 @@ package com.vinay.hospitalmanagement.controller;
 import com.vinay.hospitalmanagement.dto.PatientRequest;
 import com.vinay.hospitalmanagement.dto.PatientResponse;
 import com.vinay.hospitalmanagement.entity.Patient;
+import com.vinay.hospitalmanagement.exception.PatientAlreadyExistsException;
 import com.vinay.hospitalmanagement.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class PatientController {
     private PatientService patientService;
 
     @PostMapping("/createPatient")
-    public PatientResponse createPatient(@RequestBody PatientRequest patientRequest){
+    public PatientResponse createPatient(@RequestBody PatientRequest patientRequest) {
         return patientService.create(patientRequest);
     }
 

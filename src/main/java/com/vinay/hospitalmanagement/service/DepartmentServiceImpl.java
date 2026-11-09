@@ -3,6 +3,7 @@ package com.vinay.hospitalmanagement.service;
 import com.vinay.hospitalmanagement.dto.DepartmentRequest;
 import com.vinay.hospitalmanagement.dto.DepartmentResponse;
 import com.vinay.hospitalmanagement.entity.Department;
+import com.vinay.hospitalmanagement.exception.DepartmentAlreadyExistsException;
 import com.vinay.hospitalmanagement.exception.DepartmentNotFoundException;
 import com.vinay.hospitalmanagement.mapper.DepartmentMapper;
 import com.vinay.hospitalmanagement.repository.DepartmentRepository;
@@ -19,10 +20,22 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     public DepartmentResponse create(DepartmentRequest departmentRequest){
 
-        Department department= DepartmentMapper.departmentRequestToEntity(departmentRequest);
+        try {
 
-        return DepartmentMapper.departmentEntityToResponse(departmentRepository.save(department));
 
+            Optional<Department> department = departmentRepository.findByDeptName(departmentRequest.getDepartmentName());
+
+            if (department.isPresent()) {
+                throw new DepartmentAlreadyExistsException("Department already exists with this" + departmentRequest.getDepartmentName());
+            }
+
+            Department departmentEntity = DepartmentMapper.departmentRequestToEntity(departmentRequest);
+
+            return DepartmentMapper.departmentEntityToResponse(departmentRepository.save(departmentEntity));
+        }
+        catch (DepartmentAlreadyExistsException e) {
+            throw new RuntimeException(e.getMessage(),e);
+        }
     }
 
     public DepartmentResponse update(Long departmentId,DepartmentRequest departmentRequest){
