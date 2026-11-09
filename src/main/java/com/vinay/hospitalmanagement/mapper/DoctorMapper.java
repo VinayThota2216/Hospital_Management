@@ -9,7 +9,7 @@ import com.vinay.hospitalmanagement.entity.Doctor;
 
 public class DoctorMapper {
 
-    public Doctor doctorRequestToEntity(DoctorRequest doctorRequest){
+    public static Doctor doctorRequestToEntity(DoctorRequest doctorRequest){
 
         Doctor doctor = new Doctor();
 
@@ -21,7 +21,7 @@ public class DoctorMapper {
         return doctor;
     }
 
-    public DoctorResponse doctorEntityToResponse(Doctor doctor){
+    public static DoctorResponse doctorEntityToResponse(Doctor doctor){
 
         DoctorResponse doctorResponse = new DoctorResponse();
 

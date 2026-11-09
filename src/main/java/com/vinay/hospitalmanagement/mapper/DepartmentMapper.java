@@ -8,7 +8,7 @@ import com.vinay.hospitalmanagement.entity.Appointment;
 import com.vinay.hospitalmanagement.entity.Department;
 
 public class DepartmentMapper {
-    public Department departmentRequestToEntity(DepartmentRequest departmentRequest){
+    public static Department departmentRequestToEntity(DepartmentRequest departmentRequest){
 
         Department department = new Department();
 
@@ -18,7 +18,7 @@ public class DepartmentMapper {
         return department;
     }
 
-    public DepartmentResponse departmentEntityToResponse(Department department){
+    public static DepartmentResponse departmentEntityToResponse(Department department){
 
         DepartmentResponse departmentResponse = new DepartmentResponse();
 

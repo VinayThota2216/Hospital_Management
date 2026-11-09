@@ -8,7 +8,7 @@ import com.vinay.hospitalmanagement.entity.Appointment;
 import com.vinay.hospitalmanagement.entity.Patient;
 
 public class PatientMapper {
-    public Patient patientRequestToEntity(PatientRequest patientRequest){
+    public static Patient patientRequestToEntity(PatientRequest patientRequest){
 
         Patient patient = new Patient();
 
@@ -24,7 +24,7 @@ public class PatientMapper {
 
     }
 
-    public PatientResponse patientEntityToResponse(Patient patient){
+    public static PatientResponse patientEntityToResponse(Patient patient){
 
         PatientResponse patientResponse = new PatientResponse();
 

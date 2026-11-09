@@ -2,6 +2,9 @@ package com.vinay.hospitalmanagement.service;
 
 import com.vinay.hospitalmanagement.dto.AppointmentRequest;
 import com.vinay.hospitalmanagement.dto.AppointmentResponse;
+import com.vinay.hospitalmanagement.entity.Appointment;
+import com.vinay.hospitalmanagement.mapper.AppointmentMapper;
+
 import com.vinay.hospitalmanagement.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,10 +12,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
 
+    @Autowired
+    private AppointmentRepository appointmentRepository;
+
 
 
     public AppointmentResponse create(AppointmentRequest appointmentRequest){
-        return null;
+
+        Appointment appointment= AppointmentMapper.appointmentRequestToEntity(appointmentRequest);
+
+        return AppointmentMapper.appointmentEntityToResponse(appointmentRepository.save(appointment));
+
     }
 
 

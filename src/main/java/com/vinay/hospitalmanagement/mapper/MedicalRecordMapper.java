@@ -9,7 +9,7 @@ import com.vinay.hospitalmanagement.entity.MedicalRecord;
 
 public class MedicalRecordMapper {
 
-    public MedicalRecord medicalRecordRequestToEntity(MedicalRecordRequest medicalRecordRequest){
+    public static MedicalRecord medicalRecordRequestToEntity(MedicalRecordRequest medicalRecordRequest){
 
         MedicalRecord medicalRecord = new MedicalRecord();
 
@@ -23,7 +23,7 @@ public class MedicalRecordMapper {
 
     }
 
-    public MedicalRecordResponse medicalRecordEntityToResponse(MedicalRecord medicalRecord){
+    public static MedicalRecordResponse medicalRecordEntityToResponse(MedicalRecord medicalRecord){
 
         MedicalRecordResponse medicalRecordResponse = new MedicalRecordResponse();
 

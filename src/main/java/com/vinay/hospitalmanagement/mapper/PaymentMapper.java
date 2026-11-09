@@ -9,7 +9,7 @@ import com.vinay.hospitalmanagement.entity.Payment;
 import org.springframework.data.util.TypeCollector;
 
 public class PaymentMapper {
-    public Payment paymentRequestToEntity(PaymentRequest paymentRequest){
+    public static Payment paymentRequestToEntity(PaymentRequest paymentRequest){
 
         Payment payment = new Payment();
 
@@ -21,7 +21,7 @@ public class PaymentMapper {
         return payment;
     }
 
-    public PaymentResponse paymentEntityToResponse(Payment payment){
+    public static PaymentResponse paymentEntityToResponse(Payment payment){
 
         PaymentResponse paymentResponse = new PaymentResponse();
 

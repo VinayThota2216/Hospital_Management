@@ -8,7 +8,7 @@ import com.vinay.hospitalmanagement.entity.Appointment;
 import com.vinay.hospitalmanagement.entity.Billing;
 
 public class BillingMapper {
-    public Billing billingRequestToEntity(BillingRequest billingRequest){
+    public static Billing billingRequestToEntity(BillingRequest billingRequest){
 
         Billing billing = new Billing();
 
@@ -21,7 +21,7 @@ public class BillingMapper {
 
     }
 
-    public BillingResponse billingEntityToResponse(Billing billing){
+    public static BillingResponse billingEntityToResponse(Billing billing){
         BillingResponse billingResponse = new BillingResponse();
 
         billingResponse.setBillId(billing.getBillId());

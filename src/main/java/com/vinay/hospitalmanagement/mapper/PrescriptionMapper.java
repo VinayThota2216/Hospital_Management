@@ -8,7 +8,7 @@ import com.vinay.hospitalmanagement.entity.Appointment;
 import com.vinay.hospitalmanagement.entity.Prescription;
 
 public class PrescriptionMapper {
-    public Prescription prescriptionRequestToEntity(PrescriptionRequest prescriptionRequest){
+    public static Prescription prescriptionRequestToEntity(PrescriptionRequest prescriptionRequest){
 
         Prescription prescription = new Prescription();
 
@@ -20,7 +20,7 @@ public class PrescriptionMapper {
         return prescription;
     }
 
-    public PrescriptionResponse prescriptionEntityToResponse(Prescription prescription){
+    public static PrescriptionResponse prescriptionEntityToResponse(Prescription prescription){
 
         PrescriptionResponse prescriptionResponse = new PrescriptionResponse();
 

@@ -6,7 +6,7 @@ import com.vinay.hospitalmanagement.entity.Appointment;
 
 public class AppointmentMapper {
 
-    public Appointment appointmentRequestToEntity(AppointmentRequest appointmentRequest){
+    public static Appointment appointmentRequestToEntity(AppointmentRequest appointmentRequest){
         Appointment appointment = new Appointment();
 
         appointment.setAppointmentDate(appointmentRequest.getAppointmentDate());
@@ -18,7 +18,7 @@ public class AppointmentMapper {
         return appointment;
     }
 
-    public AppointmentResponse appointmentEntityToResponse(Appointment appointment){
+    public static AppointmentResponse appointmentEntityToResponse(Appointment appointment){
 
         AppointmentResponse appointmentResponse = new AppointmentResponse();
 
