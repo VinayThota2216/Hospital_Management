@@ -28,7 +28,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     }
 
-
     public AppointmentResponse update(Long appointmentId, AppointmentRequest appointmentRequest) {
 
         Optional<Appointment> appointment = appointmentRepository.findById(appointmentId);
@@ -53,6 +52,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     public AppointmentResponse delete(Long appointmentId){
         Optional<Appointment> appointment = appointmentRepository.findById(appointmentId);
+
         if(appointment.isEmpty()){
             throw new AppointmentNotFoundException("appointment not found");
         }
@@ -65,9 +65,11 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 
     }
+
     public AppointmentResponse getById(Long appointmentId){
 
         Optional<Appointment> appointment = appointmentRepository.findById(appointmentId);
+
         if(appointment.isEmpty()){
             throw new AppointmentNotFoundException("appointment not found");
         }

@@ -24,6 +24,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         return DepartmentMapper.departmentEntityToResponse(departmentRepository.save(department));
 
     }
+
     public DepartmentResponse update(Long departmentId,DepartmentRequest departmentRequest){
 
         Optional<Department> department= departmentRepository.findById(departmentId);
@@ -40,13 +41,26 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         return DepartmentMapper.departmentEntityToResponse(departmentRepository.save(departmentEntity));
 
-
-
     }
+
     public DepartmentResponse delete(Long departmentId){
-        return null;
+
+        Optional<Department> department= departmentRepository.findById(departmentId);
+
+        if(department.isEmpty()){
+            throw new DepartmentNotFoundException("Department not found");
+        }
+        departmentRepository.deleteById(departmentId);
+        return DepartmentMapper.departmentEntityToResponse(department.get());
     }
+
     public DepartmentResponse getById(Long departmentId){
-        return null;
+
+        Optional<Department> department= departmentRepository.findById(departmentId);
+
+        if(department.isEmpty()){
+            throw new DepartmentNotFoundException("Department not found");
+        }
+        return DepartmentMapper.departmentEntityToResponse(department.get());
     }
 }

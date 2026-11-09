@@ -24,6 +24,7 @@ public class PatientServiceImpl implements PatientService {
         return PatientMapper.patientEntityToResponse(patientRepository.save(patient));
 
     }
+
     public PatientResponse update(Long patientId,PatientRequest patientRequest) {
 
         Optional<Patient> patient = patientRepository.findById(patientId);
@@ -44,10 +45,25 @@ public class PatientServiceImpl implements PatientService {
 
         return PatientMapper.patientEntityToResponse(patientRepository.save(patientEntity));
     }
+
     public PatientResponse delete(Long patientId){
-        return null;
+
+        Optional<Patient> patient = patientRepository.findById(patientId);
+
+        if (patient.isEmpty()) {
+            throw new PatientNotFoundException("Patient not found");
+        }
+        patientRepository.delete(patient.get());
+        return PatientMapper.patientEntityToResponse(patient.get());
     }
+
     public PatientResponse getById(Long patientId){
-        return null;
+
+        Optional<Patient> patient = patientRepository.findById(patientId);
+
+        if (patient.isEmpty()) {
+            throw new PatientNotFoundException("Patient not found");
+        }
+        return PatientMapper.patientEntityToResponse(patient.get());
     }
 }

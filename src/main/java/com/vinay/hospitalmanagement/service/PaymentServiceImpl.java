@@ -24,9 +24,18 @@ public class PaymentServiceImpl implements PaymentService{
         return PaymentMapper.paymentEntityToResponse(paymentRepository.save(payment));
 
     }
+
     public PaymentResponse getById(Long paymentId){
-        return null;
+
+        Optional<Payment> payment=paymentRepository.findById(paymentId);
+
+        if(payment.isEmpty()){
+            throw new PaymentNotFoundException("Payment not found");
+        }
+        return PaymentMapper.paymentEntityToResponse(payment.get());
+
     }
+
     public PaymentResponse update(Long paymentId,PaymentRequest paymentRequest){
 
         Optional<Payment> payment=paymentRepository.findById(paymentId);
@@ -45,7 +54,15 @@ public class PaymentServiceImpl implements PaymentService{
         return PaymentMapper.paymentEntityToResponse(paymentRepository.save(paymentEntity));
 
     }
+
     public PaymentResponse delete(Long paymentId){
-        return null;
+
+        Optional<Payment> payment=paymentRepository.findById(paymentId);
+
+        if(payment.isEmpty()){
+            throw new PaymentNotFoundException("Payment not found");
+        }
+        paymentRepository.delete(payment.get());
+        return PaymentMapper.paymentEntityToResponse(payment.get());
     }
 }

@@ -24,6 +24,7 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
         return MedicalRecordMapper.medicalRecordEntityToResponse(medicalRecordRepository.save(medicalRecord));
 
     }
+
     public MedicalRecordResponse update(Long recordId,MedicalRecordRequest medicalRecordRequest){
 
         Optional<MedicalRecord> medicalRecord= medicalRecordRepository.findById(recordId);
@@ -42,10 +43,24 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
 
         return  MedicalRecordMapper.medicalRecordEntityToResponse(medicalRecordRepository.save(medicalRecordEntity));
     }
+
     public MedicalRecordResponse getById(Long recordId){
-        return null;
+
+        Optional<MedicalRecord> medicalRecord= medicalRecordRepository.findById(recordId);
+
+        if(medicalRecord.isEmpty()){
+            throw new MedicalRecordNotFoundException("Record not found");
+        }
+        return MedicalRecordMapper.medicalRecordEntityToResponse(medicalRecord.get());
     }
+
     public MedicalRecordResponse delete(Long recordId){
-        return null;
+        Optional<MedicalRecord> medicalRecord= medicalRecordRepository.findById(recordId);
+
+        if(medicalRecord.isEmpty()){
+            throw new MedicalRecordNotFoundException("Record not found");
+        }
+        medicalRecordRepository.delete(medicalRecord.get());
+        return MedicalRecordMapper.medicalRecordEntityToResponse(medicalRecord.get());
     }
 }

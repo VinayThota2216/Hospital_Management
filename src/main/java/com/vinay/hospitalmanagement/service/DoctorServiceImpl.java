@@ -25,6 +25,7 @@ public class DoctorServiceImpl implements DoctorService {
         return DoctorMapper.doctorEntityToResponse(doctorRepository.save(doctor));
 
     }
+
     public DoctorResponse update(Long doctorId,DoctorRequest doctorRequest){
 
         Optional<Doctor> doctor = doctorRepository.findById(doctorId);
@@ -42,10 +43,23 @@ public class DoctorServiceImpl implements DoctorService {
 
         return DoctorMapper.doctorEntityToResponse(doctorRepository.save(doctorEntity));
     }
+
     public DoctorResponse delete(Long doctorId){
-        return null;
+        Optional<Doctor> doctor = doctorRepository.findById(doctorId);
+
+        if (doctor.isEmpty()){
+            throw new DoctorNotFoundException("Doctor not found");
+        }
+        doctorRepository.delete(doctor.get());
+        return DoctorMapper.doctorEntityToResponse(doctor.get());
     }
+
     public DoctorResponse getById(Long doctorId){
-        return null;
+        Optional<Doctor> doctor = doctorRepository.findById(doctorId);
+
+        if (doctor.isEmpty()){
+            throw new DoctorNotFoundException("Doctor not found");
+        }
+        return DoctorMapper.doctorEntityToResponse(doctor.get());
     }
 }

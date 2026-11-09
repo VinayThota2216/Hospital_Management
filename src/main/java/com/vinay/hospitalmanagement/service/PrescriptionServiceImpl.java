@@ -24,12 +24,28 @@ public class PrescriptionServiceImpl implements PrescriptionService {
         return PrescriptionMapper.prescriptionEntityToResponse(prescriptionRepository.save(prescription));
 
     }
+
     public PrescriptionResponse getById(Long prescriptionId){
-        return null;
+
+        Optional<Prescription> prescription = prescriptionRepository.findById(prescriptionId);
+
+        if(prescription.isEmpty()){
+            throw new PrescriptionNotFoundException("Prescription not found");
+        }
+        return PrescriptionMapper.prescriptionEntityToResponse(prescription.get());
     }
+
     public PrescriptionResponse delete(Long prescriptionId){
-        return null;
+
+        Optional<Prescription> prescription = prescriptionRepository.findById(prescriptionId);
+
+        if(prescription.isEmpty()){
+            throw new PrescriptionNotFoundException("Prescription not found");
+        }
+        prescriptionRepository.delete(prescription.get());
+        return PrescriptionMapper.prescriptionEntityToResponse(prescription.get());
     }
+
     public PrescriptionResponse update(Long prescriptionId,PrescriptionRequest prescriptionRequest){
 
         Optional<Prescription> prescription = prescriptionRepository.findById(prescriptionId);

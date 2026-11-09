@@ -24,6 +24,7 @@ public class BillingServiceImpl implements BillingService {
         return BillingMapper.billingEntityToResponse(billingRepository.save(billing));
 
     }
+
     public BillingResponse update(Long billingId,BillingRequest billingRequest){
 
         Optional<Billing> billing=billingRepository.findById(billingId);
@@ -42,10 +43,30 @@ public class BillingServiceImpl implements BillingService {
         return BillingMapper.billingEntityToResponse(billingRepository.save(billingEntity));
 
     }
+
     public BillingResponse delete(Long billingId){
-        return null;
+
+
+        Optional<Billing> billing=billingRepository.findById(billingId);
+
+        if (billing.isEmpty()){
+            throw new BillNotFoundException("Billing not found");
+        }
+
+        Billing billingEntity= billing.get();
+        billingRepository.delete(billingEntity);
+        return BillingMapper.billingEntityToResponse(billingEntity);
+
     }
+
     public BillingResponse getById(Long billingId){
-        return null;
+
+        Optional<Billing> billing=billingRepository.findById(billingId);
+
+        if (billing.isEmpty()){
+            throw new BillNotFoundException("Billing not found");
+        }
+
+        return BillingMapper.billingEntityToResponse(billing.get());
     }
 }
