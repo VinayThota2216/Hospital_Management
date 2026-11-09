@@ -52,8 +52,18 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     public AppointmentResponse delete(Long appointmentId){
+        Optional<Appointment> appointment = appointmentRepository.findById(appointmentId);
+        if(appointment.isEmpty()){
+            throw new AppointmentNotFoundException("appointment not found");
+        }
 
-        return null;
+        Appointment appointmentEntity = appointment.get();
+
+        appointmentRepository.delete(appointmentEntity);
+
+        return AppointmentMapper.appointmentEntityToResponse(appointmentEntity);
+
+
     }
     public AppointmentResponse getById(Long appointmentId){
 

@@ -5,6 +5,7 @@ import com.vinay.hospitalmanagement.dto.AppointmentResponse;
 import com.vinay.hospitalmanagement.entity.Appointment;
 import com.vinay.hospitalmanagement.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,8 +31,9 @@ public class AppointmentController {
     }
 
     @DeleteMapping("/deleteAppoinment/{appointmentId}")
-    public AppointmentResponse deleteAppointment(@PathVariable("appointmentId") Long appointmentId) {
-        return appointmentService.delete(appointmentId);
+    public boolean deleteAppointment(@PathVariable("appointmentId") Long appointmentId) {
+        appointmentService.delete(appointmentId);
+        return true;
     }
 
 
